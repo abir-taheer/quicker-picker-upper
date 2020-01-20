@@ -1,4 +1,4 @@
-const Database = require('sequelize');
+const Index = require('sequelize');
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -31,7 +31,7 @@ if(process.env.SEQUELIZE_SSL === "false"){
 	sequelize_options.native = false;
 }
 
-const sequelize = new Database(
+const sequelize = new Index(
 	(process.env.SEQUELIZE_DB || "database"),
 	(process.env.SEQUELIZE_USER || "user"),
 	(process.env.SEQUELIZE_PASS || "password"),

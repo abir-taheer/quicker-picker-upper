@@ -1,8 +1,8 @@
 const
 	fs = require("fs"),
-	meta = require("./config/meta"),
 	dotenv = require('dotenv'),
-	db = require("./config/database"),
+	db = require("./database"),
+	opengraph = require("./opengraph"),
 	app_port = process.env.PORT || 3001,
 	bodyParser = require("body-parser"),
 	cookieParser = require('cookie-parser'),
@@ -47,6 +47,8 @@ app.use(
 	)
 );
 
+app.use(opengraph);
+
 const index_file = fs.readFileSync("./client/build/index.html").toString();
 
 const handleDefaultNavigation = (req, res) => {
@@ -54,7 +56,7 @@ const handleDefaultNavigation = (req, res) => {
 	// cache_age represents the number of seconds to cache the page
 	let cache_age = 60 * 60 * 24 * 5;
 	res.set('Cache-Control', `public, max-age=${cache_age}`); // 5 days
-	res.send(meta.fillPlaceholders(index_file, req.path));
+	res.send(index_file.replace("<og-data />", req.buildOG()));
 };
 
 // Catch the index page before it is handled statically
