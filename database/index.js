@@ -31,7 +31,7 @@ if(process.env.SEQUELIZE_SSL === "false"){
 	sequelize_options.native = false;
 }
 
-const sequelize = new Index(
+const sequelize = new Database(
 	(process.env.SEQUELIZE_DB || "database"),
 	(process.env.SEQUELIZE_USER || "user"),
 	(process.env.SEQUELIZE_PASS || "password"),
