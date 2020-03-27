@@ -107,3 +107,5 @@ dist
 *.db
 *.db-journal
 
+# Uncomment after template is created
+.idea/
