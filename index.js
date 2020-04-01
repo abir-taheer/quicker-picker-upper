@@ -5,7 +5,7 @@ const app = require("./app");
 
 if ( process.env.NODE_ENV === "production" ) {
 
-	if(cluser.isMaster){
+	if(cluster.isMaster){
 		console.log("Running production server. Now Spawning worker processes...");
 
 		const cpuCount = require("os").cpus().length;
