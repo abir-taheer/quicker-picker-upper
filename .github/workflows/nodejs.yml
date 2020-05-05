@@ -8,24 +8,24 @@ jobs:
         runs-on: ${{ matrix.os }}
 
         services:
-          mysql:
-            image: mysql:5.7
-            env:
-              MYSQL_ALLOW_EMPTY_PASSWORD: yes
-              MYSQL_DATABASE: ci
-            ports:
-              - 3306
-            options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+            mysql:
+                image: mysql:5.7
+                env:
+                    MYSQL_ALLOW_EMPTY_PASSWORD: yes
+                    MYSQL_DATABASE: ci
+                ports:
+                    - 3306
+                options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
-          postgres:
-            image: postgres
-            env:
-              POSTGRES_PASSWORD: postgres
-            options: >-
-              --health-cmd pg_isready
-              --health-interval 10s
-              --health-timeout 5s
-              --health-retries 5
+            postgres:
+                image: postgres
+                env:
+                    POSTGRES_PASSWORD: postgres
+                options: >-
+                    --health-cmd pg_isready
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
 
         strategy:
             matrix:
@@ -55,19 +55,19 @@ jobs:
             - name: Build on mysql
               run: npm run build
               env:
-                SEQUELIZE_URL: mysql://root:@localhost/ci
+                  SEQUELIZE_URL: mysql://root:@localhost/ci
 
             - name: Build on postgres
-                run: npm run build
-                env:
+              run: npm run build
+              env:
                   SEQUELIZE_URL: postgres://postgres:postgres@localhost/ci
 
             - name: Test on mysql
-                run: npm test
-                env:
+              run: npm test
+              env:
                   SEQUELIZE_URL: mysql://root:@localhost/ci
 
             - name: Test on postgres
               run: npm test
               env:
-                SEQUELIZE_URL: postgres://postgres:postgres@localhost/ci
+                  SEQUELIZE_URL: postgres://postgres:postgres@localhost/ci
