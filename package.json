@@ -3,7 +3,6 @@
 	"version": "1.0.0",
 	"description": "Template for quick nodejs/react development",
 	"author": "Abir Taheer",
-	"license": "MPL-2.0",
 	"main": "index.js",
 	"scripts": {
 		"test": "mocha",
