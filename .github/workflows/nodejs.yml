@@ -5,12 +5,32 @@ name: Node.js CI
 on: [push, pull_request]
 jobs:
     build:
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
+
+        services:
+          mysql:
+            image: mysql:5.7
+            env:
+              MYSQL_ALLOW_EMPTY_PASSWORD: yes
+              MYSQL_DATABASE: ci
+            ports:
+              - 3306
+            options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+          postgres:
+            image: postgres
+            env:
+              POSTGRES_PASSWORD: postgres
+            options: >-
+              --health-cmd pg_isready
+              --health-interval 10s
+              --health-timeout 5s
+              --health-retries 5
 
         strategy:
             matrix:
                 node-version: [10.x, 12.x]
-
+                os: [macos-latest, windows-latest, ubuntu-18.04, ubuntu-latest]
         steps:
             - uses: actions/checkout@v2
 
@@ -29,8 +49,25 @@ jobs:
             - name: Install Dependencies From package-lock.json File
               run: npm ci
 
-            - name: Build
-              run: npm build
+            - name: Install database-specific packages
+              run: npm install mysql pg pg-native
 
-            - name: Test
+            - name: Build on mysql
+              run: npm run build
+              env:
+                SEQUELIZE_URL: mysql://root:@localhost/ci
+
+            - name: Build on postgres
+                run: npm run build
+                env:
+                  SEQUELIZE_URL: postgres://postgres:postgres@localhost/ci
+
+            - name: Test on mysql
+                run: npm test
+                env:
+                  SEQUELIZE_URL: mysql://root:@localhost/ci
+
+            - name: Test on postgres
               run: npm test
+              env:
+                SEQUELIZE_URL: postgres://postgres:postgres@localhost/ci
