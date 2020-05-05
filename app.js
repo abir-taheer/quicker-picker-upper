@@ -2,15 +2,17 @@ const database = require("./database");
 const opengraph = require("./opengraph");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const nunjucks = require("nunjucks");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const expressSession = require("express-session");
 const SequelizeConnectSession = require("connect-session-sequelize")(expressSession.Store);
 const sequelizeStore = new SequelizeConnectSession({db: database.sequelize});
+
+const sessionSecret = process.env.SESSION_SECRET || "some_semi_permanent_secret";
+
 const session = expressSession({
-	secret: process.env.SESSION_SECRET || "some_semi_permanent_secret",
+	secret: sessionSecret,
 	name: "session",
 	resave: true,
 	saveUninitialized: false,
@@ -19,7 +21,7 @@ const session = expressSession({
 		path: "/",
 		httpOnly: true,
 		secure: false,
-		maxAge: Number(process.env.SESSION_MAX_AGE) || (7 * 86400 * 1000)
+		maxAge: 7 * 86400 * 1000
 	},
 	rolling: true
 });
@@ -28,12 +30,7 @@ sequelizeStore.sync();
 
 app.use(session);
 
-nunjucks.configure("./client/build", {
-    autoescape: true,
-    express: app
-});
-
-app.use(cookieParser(process.env.SESSION_SECRET || "some_semi_permanent_secret"));
+app.use(cookieParser(sessionSecret));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

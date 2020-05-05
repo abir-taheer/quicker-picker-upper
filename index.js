@@ -25,13 +25,14 @@ if ( process.env.NODE_ENV === "production" ) {
 
 	} else {
 
+		// Code to run inside of a worker
 		app.listen(port, () => console.log(`Worker ${cluster.worker.id} listening on port ${port}`));
 
 	}
 
-// Code to run if we're in a worker process
 } else {
 
+	// Code to run in a development env
 	app.listen(port, () => console.log(`Listening on port ${port}`));
 
 }
