@@ -11,8 +11,8 @@ jobs:
             if: ${{ matrix.database == 'postgres' }}
             SEQUELIZE_URL: postgres://postgres:postgres@localhost:5432/ci
 
+        if: ${{ matrix.database == 'postgres' }}
         services:
-            if: ${{ matrix.database == 'postgres' }}
             postgres:
                 image: postgres
                 env:
