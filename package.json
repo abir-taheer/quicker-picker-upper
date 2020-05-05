@@ -1,40 +1,42 @@
 {
-  "name": "quicker-picker-upper",
-  "version": "1.0.0",
-  "description": "Template for quick nodejs/react development",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha",
-    "start": "node index",
-    "dev": "npx nodemon index",
-    "build": "npx sequelize db:migrate"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abir-taheer/quicker-picker-upper.git"
-  },
-  "author": "Abir Taheer",
-  "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/abir-taheer/quicker-picker-upper/issues"
-  },
-  "homepage": "https://github.com/abir-taheer/quicker-picker-upper#readme",
-  "dependencies": {
-    "body-parser": "latest",
-    "connect-session-sequelize": "^6.1.1",
-    "cookie-parser": "^1.4.5",
-    "dotenv": "latest",
-    "express": "latest",
-    "express-session": "^1.17.1",
-    "morgan": "^1.10.0",
-    "sequelize": "^5.21.7",
-    "sqlite3": "^4.2.0"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^7.1.2",
-    "nodemon": "^2.0.3",
-    "request": "^2.88.2",
-    "sequelize-cli": "^5.5.1"
-  }
+	"name": "quicker-picker-upper",
+	"version": "1.0.0",
+	"description": "Template for quick nodejs/react development",
+	"author": "Abir Taheer",
+	"license": "MPL-2.0",
+	"main": "index.js",
+	"scripts": {
+		"test": "mocha",
+		"start": "node index",
+		"dev": "npx nodemon index",
+		"build": "npx sequelize db:migrate"
+	},
+	"dependencies": {
+		"body-parser": "latest",
+		"connect-session-sequelize": "^6.1.1",
+		"cookie-parser": "^1.4.5",
+		"dotenv": "latest",
+		"express": "latest",
+		"express-session": "^1.17.1",
+		"morgan": "^1.10.0",
+		"sequelize": "^5.21.7",
+		"sqlite3": "^4.2.0"
+	},
+	"devDependencies": {
+		"chai": "^4.2.0",
+		"mocha": "^7.1.2",
+		"nodemon": "^2.0.3",
+		"prettier": "^2.0.5",
+		"request": "^2.88.2",
+		"sequelize-cli": "^5.5.1"
+	},
+	"prettier": {
+		"useTabs": true,
+		"tabWidth": 4,
+		"arrowParens": "avoid",
+		"trailingComma": "none",
+		"semi": true,
+		"singleQuote": true,
+		"printWidth": 80
+	}
 }

@@ -1,5 +1,5 @@
-const path = require("path");
-const sqlitePath = path.resolve(__dirname, "./../app.db");
+const path = require('path');
+const sqlitePath = path.resolve(__dirname, './../app.db');
 
 module.exports = {
 	development: {

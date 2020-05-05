@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 /**
  * Decrypts a hex given its key and iv (salt)
@@ -8,6 +8,8 @@ const crypto = require("crypto");
  * @return {String} The original string as it existed before encryption (if successful)
  */
 module.exports = (encryptedHex, key, iv) => {
-	let decipher = crypto.createDecipheriv("aes256", key, iv);
-	return decipher.update(encryptedHex, "hex", "utf8") + decipher.final("utf8");
+	let decipher = crypto.createDecipheriv('aes256', key, iv);
+	return (
+		decipher.update(encryptedHex, 'hex', 'utf8') + decipher.final('utf8')
+	);
 };
