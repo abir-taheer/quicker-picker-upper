@@ -58,8 +58,6 @@ jobs:
 
     build-on-sqlite:
         runs-on: ${{ matrix.os }}
-        env:
-            SEQUELIZE_URL: sqlite::./app.db
 
         strategy:
             matrix:
