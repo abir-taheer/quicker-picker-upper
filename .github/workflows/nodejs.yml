@@ -42,8 +42,8 @@ jobs:
                       ${{ runner.os }}-build-
                       ${{ runner.os }}-
 
-            - name: Install Dependencies From package-lock.json File
-              run: npm ci
+            - name: Install dependencies
+              run: npm install
 
             - name: Install database-specific packages
               run: npm install pg pg-native
