@@ -14,13 +14,14 @@ jobs:
                     POSTGRES_USER: postgres
                     POSTGRES_PASSWORD: postgres
                     POSTGRES_DB: ci
-                    ports:
-                        - 5432:5432
                 options: >-
                     --health-cmd pg_isready
                     --health-interval 10s
                     --health-timeout 5s
                     --health-retries 5
+                ports:
+                    # Maps tcp port 5432 on service container to the host
+                    - 5432:5432
 
         strategy:
             matrix:
@@ -50,9 +51,9 @@ jobs:
             - name: Build on postgres
               run: npm run build
               env:
-                  SEQUELIZE_URL: postgres://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/ci
+                  SEQUELIZE_URL: postgres://postgres:postgres@localhost:5432/ci
 
             - name: Test on postgres
               run: npm test
               env:
-                  SEQUELIZE_URL: postgres://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/ci
+                  SEQUELIZE_URL: postgres://postgres:postgres@localhost:5432/ci
