@@ -9,7 +9,8 @@
 		"test": "mocha",
 		"start": "node index",
 		"dev": "npx nodemon index",
-		"build": "npx sequelize db:migrate"
+		"build": "npx sequelize db:migrate",
+		"prettier": "npx prettier --write ."
 	},
 	"dependencies": {
 		"body-parser": "latest",
