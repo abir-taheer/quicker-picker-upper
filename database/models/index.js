@@ -22,7 +22,8 @@ fs.readdirSync(__dirname)
 		);
 	})
 	.forEach(file => {
-		const model = sequelize['import'](path.join(__dirname, file));
+		const module = require(path.resolve(__dirname, file));
+		const model = module(sequelize, Sequelize.DataTypes);
 		db[model.name] = model;
 	});
 
