@@ -1,8 +1,8 @@
-const hb = require("honeybadger");
+const hb = require('honeybadger');
 let reportError;
 
 const apiKey = process.env.HONEYBADGER_KEY;
-if(apiKey){
+if (apiKey) {
 	hb.configure({
 		apiKey
 	});

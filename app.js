@@ -13,10 +13,10 @@ app.use(parsers);
 const opengraph = require('./opengraph');
 app.use(opengraph);
 
-const routes = require("./routes");
+const routes = require('./routes');
 app.use(routes);
 
-const errorHandler = require("./middleware/errorHandler");
+const errorHandler = require('./middleware/errorHandler');
 app.use(errorHandler);
 
 module.exports = app;

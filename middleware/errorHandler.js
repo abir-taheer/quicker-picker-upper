@@ -1,4 +1,4 @@
-const reportError = require("../utils/reportError");
+const reportError = require('../utils/reportError');
 
 const errorHandler = (err, req, res, next) => {
 	reportError(err, {
@@ -9,8 +9,8 @@ const errorHandler = (err, req, res, next) => {
 	res.json({
 		success: false,
 		error: {
-			code: "SERVER_ERROR",
-			message: "There was an unexpected error. Try again later."
+			code: 'SERVER_ERROR',
+			message: 'There was an unexpected error. Try again later.'
 		}
 	});
 };
