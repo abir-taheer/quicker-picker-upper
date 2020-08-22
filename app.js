@@ -1,22 +1,19 @@
 const express = require('express');
 const app = express();
-
 const logger = require('./middleware/logger');
+const session = require('./middleware/session');
+const parsers = require('./middleware/parsers');
+const errorHandler = require('./middleware/errorHandler');
+const apolloServer = require("./graphql");
+
 app.use(logger);
 
-const session = require('./middleware/session');
 app.use(session);
 
-const parsers = require('./middleware/parsers');
 app.use(parsers);
 
-const opengraph = require('./opengraph');
-app.use(opengraph);
+apolloServer.applyMiddleware({app, path: '/graphql', cors: false});
 
-const routes = require('./routes');
-app.use(routes);
-
-const errorHandler = require('./middleware/errorHandler');
 app.use(errorHandler);
 
 module.exports = app;
