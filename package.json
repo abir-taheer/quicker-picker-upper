@@ -22,7 +22,7 @@
 		"honeybadger": "^1.4.0",
 		"morgan": "^1.10.0",
 		"sequelize": "^6.3.5",
-		"sqlite3": "^5.0.0"
+		"sqlite3": "^5.0.1"
 	},
 	"devDependencies": {
 		"chai": "^4.2.0",
