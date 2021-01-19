@@ -21,7 +21,7 @@
 		"express-session": "^1.17.1",
 		"honeybadger": "^1.4.0",
 		"morgan": "^1.10.0",
-		"sequelize": "^6.3.5",
+		"sequelize": "^6.4.0",
 		"sqlite3": "^5.0.1"
 	},
 	"devDependencies": {
