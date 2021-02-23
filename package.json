@@ -14,18 +14,19 @@
 	"dependencies": {
 		"apollo-server-express": "^2.19.2",
 		"body-parser": "latest",
-		"connect-session-sequelize": "^7.1.0",
+		"connect-session-sequelize": "^7.1.1",
 		"cookie-parser": "^1.4.5",
 		"dotenv": "latest",
 		"express": "latest",
 		"express-session": "^1.17.1",
+		"graphql": "^15.5.0",
 		"honeybadger": "^1.4.0",
 		"morgan": "^1.10.0",
-		"sequelize": "^6.3.5",
-		"sqlite3": "^5.0.2"
+		"sqlite3": "^5.0.2",
+		"sequelize": "^6.5.0",
 	},
 	"devDependencies": {
-		"chai": "^4.2.0",
+		"chai": "^4.3.0",
 		"mocha": "^8.2.1",
 		"nodemon": "^2.0.7",
 		"prettier": "^2.2.1",
