@@ -19,7 +19,7 @@
 		"dotenv": "latest",
 		"express": "latest",
 		"express-session": "^1.17.1",
-		"graphql": "^15.5.0",
+		"graphql": "^15.5.1",
 		"honeybadger": "^1.4.0",
 		"morgan": "^1.10.0",
 		"sqlite3": "^5.0.2",
