@@ -1,6 +1,8 @@
-const app = require('./../app');
+const setupApp = require('./../app');
 
-describe('App', function () {
+describe('App', async function () {
+	const app = await setupApp();
+
 	describe('#listen', function () {
 		it('should run a server without error', done => {
 			let server;
