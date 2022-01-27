@@ -1,48 +1,44 @@
 {
-	"name": "quicker-picker-upper",
-	"version": "1.0.0",
-	"description": "Template for quick nodejs/react development",
-	"author": "Abir Taheer",
-	"main": "index.js",
-	"scripts": {
-		"test": "mocha",
-		"start": "node index",
-		"dev": "npx nodemon index",
-		"build": "npx sequelize db:migrate",
-		"prettier": "npx prettier --write ."
-	},
-	"dependencies": {
-		"apollo-server-express": "^3.6.2",
-		"body-parser": "latest",
-		"connect-session-sequelize": "^7.1.2",
-		"cookie-parser": "^1.4.6",
-		"dotenv": "latest",
-		"express": "latest",
-		"express-session": "^1.17.2",
-		"graphql": "^16.3.0",
-		"honeybadger": "^1.4.1",
-		"morgan": "^1.10.0",
-		"sequelize": "^6.14.1",
-		"sqlite3": "^4.2.0"
-	},
-	"devDependencies": {
-		"chai": "^4.3.6",
-		"mocha": "^9.2.0",
-		"nodemon": "^2.0.15",
-		"prettier": "^2.5.1",
-		"request": "^2.88.2",
-		"sequelize-cli": "^6.4.1"
-	},
-	"prettier": {
-		"useTabs": true,
-		"tabWidth": 4,
-		"arrowParens": "avoid",
-		"trailingComma": "none",
-		"semi": true,
-		"singleQuote": true,
-		"printWidth": 80
-	},
-	"mocha": {
-		"recursive": true
-	}
+  "name": "quicker-picker-upper",
+  "version": "1.0.0",
+  "description": "Template for quick nodejs/react development",
+  "author": "Abir Taheer",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index",
+    "dev": "npx nodemon index",
+    "build": "npx sequelize db:migrate",
+    "prettier": "npx prettier --write ."
+  },
+  "dependencies": {
+    "apollo-server-express": "^3.6.2",
+    "body-parser": "latest",
+    "connect-session-sequelize": "^7.1.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "latest",
+    "express": "latest",
+    "express-session": "^1.17.2",
+    "graphql": "^16.3.0",
+    "honeybadger": "^1.4.1",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.14.1",
+    "sqlite3": "^4.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "request": "^2.88.2",
+    "sequelize-cli": "^6.4.1"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 80
+  },
+  "mocha": {
+    "recursive": true
+  }
 }

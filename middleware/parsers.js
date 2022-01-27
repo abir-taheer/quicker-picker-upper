@@ -1,5 +1,5 @@
 const sessionSecret =
-	process.env.SESSION_SECRET || 'some_semi_permanent_secret';
+  process.env.SESSION_SECRET || 'some_semi_permanent_secret';
 const router = require('express').Router();
 
 const cookieParser = require('cookie-parser');

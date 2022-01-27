@@ -7,19 +7,19 @@ const errorHandler = require('./middleware/errorHandler');
 const apolloServer = require('./graphql');
 
 async function setupApp() {
-	app.use(logger);
+  app.use(logger);
 
-	app.use(session);
+  app.use(session);
 
-	app.use(parsers);
+  app.use(parsers);
 
-	await apolloServer.start();
+  await apolloServer.start();
 
-	apolloServer.applyMiddleware({ app, path: '/graphql', cors: false });
+  apolloServer.applyMiddleware({ app, path: '/graphql', cors: false });
 
-	app.use(errorHandler);
+  app.use(errorHandler);
 
-	return app;
+  return app;
 }
 
 module.exports = setupApp;

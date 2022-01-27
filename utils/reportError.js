@@ -3,13 +3,13 @@ let reportError;
 
 const apiKey = process.env.HONEYBADGER_KEY;
 if (apiKey) {
-	hb.configure({
-		apiKey
-	});
+  hb.configure({
+    apiKey,
+  });
 
-	reportError = hb.notify;
+  reportError = hb.notify;
 } else {
-	reportError = console.error;
+  reportError = console.error;
 }
 
 module.exports = reportError;
