@@ -1,4 +1,4 @@
-import { DataTypes, QueryInterface } from 'sequelize';
+import { DataTypes } from 'sequelize';
 import { MigrationFunctionParams } from './types';
 
 async function up({ context: queryInterface }: MigrationFunctionParams) {

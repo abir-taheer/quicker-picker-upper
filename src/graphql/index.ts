@@ -1,11 +1,10 @@
 import {
-  ApolloServer,
   ApolloError,
+  ApolloServer,
   ValidationError,
 } from 'apollo-server-express';
-
-import typeDefs from './typeDefs';
 import resolvers from './resolvers';
+import typeDefs from './typeDefs';
 
 const apolloServer = new ApolloServer({
   typeDefs,

@@ -1,11 +1,10 @@
 import {
+  CreationOptional,
   DataTypes,
-  Model,
   InferAttributes,
   InferCreationAttributes,
-  CreationOptional,
+  Model,
 } from 'sequelize';
-
 import sequelize from '../sequelize';
 
 export default class User extends Model<

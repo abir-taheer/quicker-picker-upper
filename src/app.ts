@@ -1,8 +1,8 @@
 import express from 'express';
+import umzug from './database/umzug';
+import errorHandler from './middleware/errorHandler';
 import logger from './middleware/logger';
 import parsers from './middleware/parsers';
-import errorHandler from './middleware/errorHandler';
-import umzug from './database/umzug';
 
 const app = express();
 

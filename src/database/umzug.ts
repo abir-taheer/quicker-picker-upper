@@ -1,5 +1,5 @@
+import { SequelizeStorage, Umzug } from 'umzug';
 import sequelize from './sequelize';
-import { Umzug, SequelizeStorage } from 'umzug';
 
 require('ts-node/register');
 

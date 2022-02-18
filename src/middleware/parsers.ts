@@ -1,5 +1,5 @@
-import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import { Router } from 'express';
 
 const sessionSecret =
