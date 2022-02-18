@@ -109,3 +109,5 @@ dist
 
 # Uncomment after template is created
 .idea/
+
+dist/

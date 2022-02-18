@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "outDir": "dist/",
+    "sourceMap": true,
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": true
+  }
+}
