@@ -1,13 +1,14 @@
 require('dotenv').config();
-const cluster = require('cluster');
-const port = Number(process.env.PORT) || 3001;
-const setupApp = require('./app');
+import cluster, { Worker } from 'cluster';
+import setupApp from './app';
 
-async function run() {
+const port: number = Number(process.env.PORT) || 3001;
+
+export async function run() {
   const app = await setupApp();
 
   if (process.env.NODE_ENV === 'production') {
-    if (cluster.isMaster) {
+    if (cluster.isPrimary) {
       console.log(
         'Running production server. Now Spawning worker processes...'
       );
@@ -19,9 +20,11 @@ async function run() {
         cluster.fork();
       }
 
-      cluster.on('exit', (worker) => {
+      cluster.on('exit', (worker: Worker, code: number) => {
         // Restart the dead process
-        console.log(`Worker ${worker.id} died. Restarting...`);
+        console.log(
+          `Worker ${worker.id} died with code ${code}. Restarting...`
+        );
         cluster.fork();
       });
     } else {
@@ -36,7 +39,7 @@ async function run() {
   }
 }
 
-run().catch((e) => {
+run().catch((e: Error) => {
   console.error(e);
   process.exit(1);
 });

@@ -1,4 +1,4 @@
-const setupApp = require('./../app');
+import setupApp from './app';
 
 describe('App', async function () {
   const app = await setupApp();

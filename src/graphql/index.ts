@@ -1,28 +1,21 @@
-const {
+import {
   ApolloServer,
   ApolloError,
   ValidationError,
-} = require('apollo-server-express');
-const typeDefs = require('./schema');
-const resolvers = require('./resolvers');
+} from 'apollo-server-express';
 
-const models = require('../database');
+import typeDefs from './typeDefs';
+import resolvers from './resolvers';
 
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ req }) => {
     return {
-      session: req.session,
-      models,
+      req,
     };
   },
   introspection: true,
-  playground: {
-    settings: {
-      'request.credentials': 'same-origin',
-    },
-  },
   formatError: (err) => {
     const safeError =
       err.originalError instanceof ApolloError ||
