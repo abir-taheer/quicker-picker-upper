@@ -1,7 +1,7 @@
 import userById from './userById';
 
 const Query = {
-  userById
+  userById,
 };
 
 export default Query;

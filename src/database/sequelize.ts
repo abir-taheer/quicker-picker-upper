@@ -12,8 +12,8 @@ const env: string = process.env.NODE_ENV || 'development';
 
 const configMap: { [key: string]: Options } = {
   development: {
-    dialect: sequelize_url ? undefined: 'sqlite',
-    storage: sequelize_url ? undefined: 'app.db',
+    dialect: sequelize_url ? undefined : 'sqlite',
+    storage: sequelize_url ? undefined : 'app.db',
     define: {
       charset: 'utf8',
       collate: 'utf8_unicode_ci',

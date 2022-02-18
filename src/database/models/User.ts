@@ -22,7 +22,7 @@ export default class User extends Model<
   // updatedAt can be undefined during creation
   declare updatedAt: CreationOptional<Date>;
   // deletedAt is only defined after the row is soft-deleted
-  declare deletedAt: CreationOptional<Date>
+  declare deletedAt: CreationOptional<Date>;
 }
 
 User.init(
@@ -43,8 +43,8 @@ User.init(
     updatedAt: DataTypes.DATE,
     deletedAt: {
       type: DataTypes.DATE,
-      allowNull: true
-    }
+      allowNull: true,
+    },
   },
   {
     tableName: 'User',
@@ -52,4 +52,3 @@ User.init(
     paranoid: true,
   }
 );
-

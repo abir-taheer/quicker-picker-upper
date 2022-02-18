@@ -4,7 +4,7 @@ import setupApp from './app';
 
 const port: number = Number(process.env.PORT) || 3001;
 
-async function run() {
+export async function run() {
   const app = await setupApp();
 
   if (process.env.NODE_ENV === 'production') {

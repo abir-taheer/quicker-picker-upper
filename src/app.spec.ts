@@ -1,12 +1,11 @@
-import setupApp from '../app';
-import { Server } from 'http';
+import setupApp from './app';
 
 describe('App', async function () {
   const app = await setupApp();
 
   describe('#listen', function () {
     it('should run a server without error', (done) => {
-      let server: Server;
+      let server;
       try {
         server = app.listen(process.env.PORT || 3001);
         done();

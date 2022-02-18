@@ -4,4 +4,5 @@ type UserByIdArgs = {
   id: number;
 };
 
-export default (parent: null, { id }: UserByIdArgs): Promise<User | null> => User.findOne({ where: { id } });
+export default (parent: null, { id }: UserByIdArgs): Promise<User | null> =>
+  User.findOne({ where: { id } });

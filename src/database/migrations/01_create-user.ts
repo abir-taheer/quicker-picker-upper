@@ -26,7 +26,7 @@ async function up({ context: queryInterface }: MigrationFunctionParams) {
     },
     deletedAt: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
     },
   });
 }

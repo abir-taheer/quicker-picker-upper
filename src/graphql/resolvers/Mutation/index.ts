@@ -1,7 +1,7 @@
 import createUser from './createUser';
 
 const Mutation = {
-  createUser
+  createUser,
 };
 
 export default Mutation;
