@@ -1,5 +1,5 @@
 import { DataTypes, QueryInterface } from 'sequelize';
-import { MigrationFunctionParams } from './migrationTypes';
+import { MigrationFunctionParams } from './types';
 
 async function up({ context: queryInterface }: MigrationFunctionParams) {
   await queryInterface.createTable('users', {
