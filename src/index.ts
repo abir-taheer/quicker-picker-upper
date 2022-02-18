@@ -1,8 +1,7 @@
 require('dotenv').config();
 import cluster, { Worker } from 'cluster';
 import setupApp from './app';
-
-const port: number = Number(process.env.PORT) || 3001;
+import { PORT } from "./constants";
 
 export async function run() {
   const app = await setupApp();
@@ -29,13 +28,13 @@ export async function run() {
       });
     } else {
       // Code to run inside of a worker
-      app.listen(port, () =>
-        console.log(`Worker ${cluster.worker.id} listening on port ${port}`)
+      app.listen(PORT, () =>
+        console.log(`Worker ${cluster.worker.id} listening on port ${PORT}`)
       );
     }
   } else {
     // Code to run in a development env
-    app.listen(port, () => console.log(`Listening on port ${port}`));
+    app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
   }
 }
 
