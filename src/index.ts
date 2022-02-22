@@ -1,7 +1,7 @@
 require('dotenv').config();
 import cluster, { Worker } from 'cluster';
 import setupApp from './app';
-import { PORT } from "./constants";
+import { PORT } from './constants';
 
 export async function run() {
   const app = await setupApp();
