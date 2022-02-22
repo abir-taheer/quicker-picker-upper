@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import { MigrationFunctionParams } from './types';
 
 async function up({ context: queryInterface }: MigrationFunctionParams) {
-  await queryInterface.createTable('users', {
+  await queryInterface.createTable('User', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -32,7 +32,7 @@ async function up({ context: queryInterface }: MigrationFunctionParams) {
 }
 
 async function down({ context: queryInterface }: MigrationFunctionParams) {
-  await queryInterface.dropTable('users');
+  await queryInterface.dropTable('User');
 }
 
 export { up, down };

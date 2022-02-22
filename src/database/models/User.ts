@@ -15,6 +15,7 @@ export default class User extends Model<
   declare id: CreationOptional<number>;
   declare firstName: string;
   declare lastName: string;
+  declare email: string;
 
   // createdAt can be undefined during creation
   declare createdAt: CreationOptional<Date>;
@@ -37,6 +38,11 @@ User.init(
     },
     lastName: {
       type: new DataTypes.STRING(256),
+      allowNull: false,
+    },
+    email: {
+      type: new DataTypes.STRING(256),
+      allowNull: false,
     },
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
