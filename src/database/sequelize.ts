@@ -1,7 +1,7 @@
 import path from 'path';
 import { Options, Sequelize } from 'sequelize';
 
-const sqlitePath = path.resolve(__dirname, './../app.db');
+const sqlitePath = path.resolve(__dirname, './../../app.db');
 const logsDisabled = process.env.SEQUELIZE_NO_LOG === 'true';
 
 const sequelize_url: string = process.env.SEQUELIZE_URL;

@@ -5,13 +5,15 @@
   "author": "Abir Taheer",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register src/**/*.spec.ts",
+    "test": "npx nyc mocha --require ts-node/register src/**/*.spec.ts",
     "start": "node dist/index.js",
     "dev": "npx nodemon index",
-    "build": "tsc && node dist/migrate",
+    "cleanup": "rimraf dist",
+    "build": "npm run cleanup && tsc && node dist/migrate",
     "prettier": "npx prettier --write ."
   },
   "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "apollo-server-express": "^3.6.3",
     "body-parser": "latest",
     "cookie-parser": "^1.4.6",
@@ -21,20 +23,23 @@
     "graphql": "^16.3.0",
     "graphql-scalars": "^1.14.1",
     "morgan": "^1.10.0",
+    "rimraf": "^3.0.2",
     "sequelize": "^6.16.2",
     "ts-node": "^10.5.0",
     "umzug": "^3.0.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.0",
     "@types/cookie-parser": "^1.4.2",
     "@types/mocha": "^9.1.0",
     "@types/morgan": "^1.9.3",
     "@types/umzug": "^2.3.3",
-    "@vscode/sqlite3": "^5.0.7",
     "chai": "^4.3.6",
     "mocha": "^9.2.1",
     "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
     "prettier": "^2.5.1",
+    "sqlite3": "npm:@vscode/sqlite3@^5.0.7",
     "typescript": "^4.5.5"
   },
   "prettier": {

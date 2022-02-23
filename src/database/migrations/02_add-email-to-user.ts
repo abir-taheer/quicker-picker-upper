@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { MigrationFunctionParams } from './types';
+import { MigrationFunctionParams } from './../types';
 
 async function up({ context: queryInterface }: MigrationFunctionParams) {
   await queryInterface.addColumn('User', 'email', {
