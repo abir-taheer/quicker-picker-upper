@@ -7,6 +7,7 @@ async function up({ context: queryInterface }: MigrationFunctionParams) {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
+      autoIncrement: true,
     },
     firstName: {
       type: DataTypes.STRING,
