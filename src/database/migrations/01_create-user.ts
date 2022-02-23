@@ -14,7 +14,7 @@ async function up({ context: queryInterface }: MigrationFunctionParams) {
       allowNull: false,
     },
     lastName: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     createdAt: {
