@@ -6,6 +6,7 @@ import {
   Op,
   WhereOptions,
 } from 'sequelize';
+import sequelize from './../database/sequelize';
 
 // Every model has an id so we're going to add that as a constraint to the type
 interface StandardModel extends Model {
@@ -51,6 +52,8 @@ async function smartSearch<SpecificModel extends StandardModel>({
   where = {},
 }: SmartSearchParams<SpecificModel>) {
   const offset = (page - 1) * resultsPerPage;
+  const dialect = sequelize.getDialect();
+  const like = dialect === 'postgres' ? Op.iLike : Op.like;
 
   const allFields = [...fields] as string[];
 
@@ -70,7 +73,7 @@ async function smartSearch<SpecificModel extends StandardModel>({
   if (options.include) {
     options.include = options.include.map(
       ({ queryFields, ...otherIncludeOptions }) => {
-        queryFields.forEach((field) =>
+        queryFields?.forEach((field) =>
           allFields.push(`$${otherIncludeOptions.model}.${field}$`)
         );
 
@@ -85,7 +88,7 @@ async function smartSearch<SpecificModel extends StandardModel>({
     // Only one field in the row needs to contain the word for the `or` condition to succeed
     [Op.or]: allFields.map((field) => ({
       [field]: {
-        [Op.like]: `%${word}%`,
+        [like]: `%${word}%`,
       },
     })),
   }));
