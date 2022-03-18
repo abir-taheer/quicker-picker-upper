@@ -21,7 +21,7 @@
     "express": "latest",
     "express-session": "^1.17.2",
     "graphql": "^16.3.0",
-    "graphql-scalars": "^1.14.1",
+    "graphql-scalars": "^1.15.0",
     "morgan": "^1.10.0",
     "rimraf": "^3.0.2",
     "sequelize": "^6.16.2",
