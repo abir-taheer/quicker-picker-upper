@@ -111,3 +111,5 @@ dist
 .idea/
 
 dist/
+
+*.DS_STORE*
