@@ -1,0 +1,13 @@
+pull_request_rules:
+  - name: Automatic merge on approval
+    conditions:
+      - author=dependabot[bot]
+      - check-success=build-on-mysql (14.x, ubuntu-18.04)
+      - check-success=build-on-mysql (16.x, ubuntu-18.04)
+      - check-success=build-on-postgres (14.x, ubuntu-18.04)
+      - check-success=build-on-postgres (16.x, ubuntu-18.04)
+      - check-success=build-on-sqlite (14.x, ubuntu-18.04)
+      - check-success=build-on-sqlite (16.x, ubuntu-18.04)
+    actions:
+      merge:
+        method: merge
