@@ -1,5 +1,5 @@
 pull_request_rules:
-  - name: Automatic merge on approval
+  - name: Automatic merge when dependabot update passes all CI
     conditions:
       - author=dependabot[bot]
       - check-success=build-on-mysql (14.x, ubuntu-18.04)
