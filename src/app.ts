@@ -2,10 +2,10 @@ import express from 'express';
 import errorHandler from './middleware/errorHandler';
 import logger from './middleware/logger';
 import parsers from './middleware/parsers';
+import apolloServer from "./graphql";
 
 const app = express();
 
-const apolloServer = require('./graphql');
 
 async function setupApp() {
   app.use(logger);
