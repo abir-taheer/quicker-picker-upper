@@ -1,6 +1,6 @@
 import smartSearch from './smartSearch';
 import User from '../database/models/User';
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 import { expect } from 'chai';
 
 describe('smartSearch', async () => {
