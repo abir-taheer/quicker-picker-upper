@@ -20,7 +20,7 @@
     "dotenv": "latest",
     "express": "latest",
     "graphql": "^16.6.0",
-    "graphql-scalars": "^1.18.0",
+    "graphql-scalars": "^1.19.0",
     "morgan": "^1.10.0",
     "rimraf": "^3.0.2",
     "sequelize": "^6.24.0",
