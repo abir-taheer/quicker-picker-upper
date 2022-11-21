@@ -23,7 +23,7 @@
     "graphql-scalars": "^1.20.1",
     "morgan": "^1.10.0",
     "rimraf": "^3.0.2",
-    "sequelize": "^6.25.5",
+    "sequelize": "^6.25.7",
     "umzug": "^3.2.1"
   },
   "devDependencies": {
